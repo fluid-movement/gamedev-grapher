@@ -16,7 +16,8 @@ class Equations implements EquationsInterface {
 			name: 'New Equation',
 			minValue: 1,
 			maxValue: 20,
-			showTable: false
+			showTable: false,
+			hue: Math.random() * 360
 		});
 	};
 

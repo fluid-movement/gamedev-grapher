@@ -5,4 +5,5 @@ export type Equation = {
 	minValue: number;
 	maxValue: number;
 	showTable: boolean;
+	hue: number;
 };

@@ -8,7 +8,6 @@
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
 
-
 	import { equationsStore } from '$lib/data/Equations.svelte.js';
 	import LineChart from '$lib/components/LineChart.svelte';
 	import {compute} from '$lib/services/MathService';
@@ -18,7 +17,7 @@
 <main class="relative p-8 flex gap-8">
 	<div class="flex flex-col gap-4">
 		{#each equationsStore.equations as equation}
-			<Card.Root>
+			<Card.Root class="border border-solid" style="border-color: hsl({equation.hue}, 100%, 50%);">
 				<Card.Content class="flex flex-col gap-4">
 					<Input bind:value={equation.name} />
 					<ButtonGroup.Root>
@@ -86,6 +85,8 @@
 				</Card.Content>
 			</Card.Root>
 		{/each}
-		<LineChart {equationsStore} />
+		{#if equationsStore.equations.length > 0}
+			<LineChart {equationsStore} />
+		{/if}
 	</div>
 </main>

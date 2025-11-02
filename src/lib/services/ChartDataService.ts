@@ -13,13 +13,12 @@ export const build = (equations: Equation[]): ChartConfiguration => {
 	// Generate consistent colors for each equation
 	const datasets = equations.map((equation) => {
 		const dataPoints = compute(equation);
-		const hue = Math.random() * 360;
 
 		return {
 			label: equation.name,
 			data: dataPoints, // Use { x, y } objects directly
-			borderColor: `hsl(${hue}, 100%, 50%)`,
-			backgroundColor: `hsla(${hue}, 100%, 50%, 0.5)`,
+			borderColor: `hsl(${equation.hue}, 100%, 50%)`,
+			backgroundColor: `hsla(${equation.hue}, 100%, 50%, 0.5)`,
 			pointRadius: 4,
 			pointHoverRadius: 6,
 			tension: 0.1
