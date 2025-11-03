@@ -4,6 +4,7 @@ interface EquationsInterface {
 	equations: Equation[];
 	create: () => void;
 	remove: (id: string) => void;
+	changeHue: (id: string) => void;
 }
 
 class Equations implements EquationsInterface {
@@ -13,7 +14,7 @@ class Equations implements EquationsInterface {
 		this.equations.push({
 			id: crypto.randomUUID(),
 			equation: '',
-			name: 'New Equation',
+			name: '',
 			minValue: 1,
 			maxValue: 20,
 			showTable: false,
@@ -24,6 +25,18 @@ class Equations implements EquationsInterface {
 	remove = (id: string): void => {
 		this.equations = this.equations.filter((eq) => eq.id !== id);
 	};
+
+	changeHue = (id: string): void => {
+		this.equations = this.equations.map((eq) => {
+			if (eq.id === id) {
+				return {
+					...eq,
+					hue: Math.random() * 360
+				};
+			}
+			return eq;
+		});
+	}
 }
 
 export const equationsStore = new Equations();
