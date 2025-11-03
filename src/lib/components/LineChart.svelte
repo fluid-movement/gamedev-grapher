@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Chart from 'chart.js/auto';
-	import { equationsStore } from '$lib/data/Equations.svelte.js';
-	import { build } from '$lib/services/ChartDataService'
+	import { Equations } from '$lib/data/Equations.svelte.js';
+	import { build } from '$lib/services/ChartDataService';
 
-	let { equationsStore: EquationsInterface } = $props();
+
+	let { equationsStore }: { equationsStore: Equations } = $props();
 	let canvas: HTMLCanvasElement;
 	let chartInstance: Chart | null = null;
 

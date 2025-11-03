@@ -8,12 +8,17 @@
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
 
-	import { equationsStore } from '$lib/data/Equations.svelte.js';
+	import { Equations } from '$lib/data/Equations.svelte.js';
 	import LineChart from '$lib/components/LineChart.svelte';
 	import { compute } from '$lib/services/MathService';
 	import { Palette, Plus, Trash } from 'lucide-svelte';
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
+	import { loadEquations, saveEquations } from '$lib/services/EquationStorageService';
 
+	const equationsStore = new Equations(loadEquations());
+	$effect(() => {
+		saveEquations(equationsStore.equations)
+	});
 </script>
 
 <main class="relative p-8 flex gap-8 h-screen">

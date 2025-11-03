@@ -7,8 +7,12 @@ interface EquationsInterface {
 	changeHue: (id: string) => void;
 }
 
-class Equations implements EquationsInterface {
+export class Equations implements EquationsInterface {
 	equations = $state<Equation[]>([]);
+
+	constructor(equations: Equation[]) {
+		this.equations = equations;
+	}
 
 	create = (): void => {
 		this.equations.push({
@@ -38,5 +42,3 @@ class Equations implements EquationsInterface {
 		});
 	}
 }
-
-export const equationsStore = new Equations();
