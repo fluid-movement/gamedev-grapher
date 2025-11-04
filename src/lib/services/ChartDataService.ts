@@ -67,6 +67,5 @@ export const build = (equations: Equation[]): ChartConfiguration => {
 		}
 	};
 
-	console.log(chartData);
 	return chartData;
 };

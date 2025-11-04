@@ -19,7 +19,7 @@ export class Equations implements EquationsInterface {
 			id: crypto.randomUUID(),
 			equation: '',
 			name: '',
-			minValue: 1,
+			minValue: 0,
 			maxValue: 20,
 			showTable: false,
 			hue: Math.random() * 360
